@@ -16,20 +16,20 @@
 #define Nop()  _nop_(); _nop_ ();_nop_ ();_nop_ ();_nop_ ()
 
 #define Bias 0x52 //Bias 
-//#define Bias 0x51
-#define SYSDIS  0X00 //Turn off both system oscillator and LCD bias generator  
-#define SYSEN  0X01   //Turn on system oscillator 
-#define LCDOFF   0X02  //Turn off LCD bias generator 
-#define LCDON   0X03 //Turn on LCD bias generator 
-#define TIMERDIS   0x04  //Disable time base 
-#define WDTDIS   0x05  //Disable WDT time 
+//#define Bias    0x51
+#define SYSDIS    0X00 //Turn off both system oscillator and LCD bias generator  
+#define SYSEN     0X01   //Turn on system oscillator 
+#define LCDOFF    0X02  //Turn off LCD bias generator 
+#define LCDON     0X03 //Turn on LCD bias generator 
+#define TIMERDIS  0x04  //Disable time base 
+#define WDTDIS    0x05  //Disable WDT time 
 #define TIMEREN   0X06  //Enable time base 
-#define WDTEN  0x07  //Enable WDT time_out flag output
+#define WDTEN     0x07  //Enable WDT time_out flag output
 #define TONEOFF   0X08   //Trun off tone outputs
-#define TONEON   0X09  //Turn on tone outputs
-#define XTAL32K 0X14  //32.768K HZ oscillator 
-#define RC256K  0X18   //System clock source 256K HZ
-#define EXT256K  0X1C   //System clock source form external source 
+#define TONEON    0X09  //Turn on tone outputs
+#define XTAL32K   0X14  //32.768K HZ oscillator 
+#define RC256K    0X18   //System clock source 256K HZ
+#define EXT256K   0X1C   //System clock source form external source 
 
 //sbit Flag = P2^0;
 sbit CS = P2^1;
@@ -70,6 +70,7 @@ void HT1621Wr_Data (uchar Data,uchar Cnt)
 }
 
 /***************Write Command ************/
+
 void HT1621Wr_Command (uchar cmd)
 {
 	HT1621_CS_L;
@@ -82,6 +83,7 @@ void HT1621Wr_Command (uchar cmd)
 }
 
 /************Write Data to address***********/
+
 void HT1621WrOneData (uchar Addr,uchar Data)
 {
 	HT1621_CS_L;
@@ -93,6 +95,7 @@ void HT1621WrOneData (uchar Addr,uchar Data)
 }
 
 /************Write Test ****************/
+
 void  HT1621WrAll_Data (uchar Addr ,uchar *p,uchar Cnt)
 {
 	uchar i;
@@ -109,6 +112,7 @@ void  HT1621WrAll_Data (uchar Addr ,uchar *p,uchar Cnt)
 }
 
 /***********TH1621 Init ****************/
+
 void HT1621_Init ()
 {
 	HT1621_CS_H;
@@ -125,6 +129,7 @@ void HT1621_Init ()
 }
 
 /**********************MAIN**************/
+
 void main ()
 {
 	uchar i,j,t;
